@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# sirius(usb-serial変換)はこちら。デバイス名が違っているだけ
+#   変換ケーブルを接続すると勝手に認識した。
+stty -F /dev/ttyUSB0 38400 clocal -crtscts cs8 -cstopb -parenb -ixon -echo -echoe -echok -echonl -noflsh -echoctl -echoke -opost
+
+#stty -F /dev/ttyUSB0 38400 clocal -crtscts cs8 -cstopb -parenb -ixon -echo -echoe -echok -echonl -noflsh -echoctl -echoke onlcr
+
+# siriusではこちら
+#stty -F /dev/ttyS0 38400 clocal -crtscts cs8 -cstopb -parenb -ixon -echo -echoe -echok -echonl -noflsh -echoctl -echoke
+
+# capellaではこちら
+#stty -F /dev/ttyS0 38400 clocal -crtscts cs8 -cstopb -parenb -ixon -echo -echoe -echok -echonl -noflsh -echoctl -echoke onlcr
+
+# OSのバージョン等によっては改行と復帰の設定がうまくいかない場合がある
+# どちらかのパターンを試してみて動作する方を使うと良い。
+# ダメなら新しい設定パターンを探すしかない。
